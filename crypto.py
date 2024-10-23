@@ -4,7 +4,7 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
-# derivandp chave de sessão usando PBKDF2
+# derivando chave de sessão usando PBKDF2
 def derivar_chave_sessao(codigo_totp):
     password = codigo_totp.encode()  # usandp o código TOTP como senha
     salt = os.urandom(16)
