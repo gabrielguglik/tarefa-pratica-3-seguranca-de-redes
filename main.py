@@ -1,5 +1,9 @@
 from auth import gerar_qr_code
-from crypto import derivar_chave_sessao, derivar_iv, cifrar_comprovante, decifrar_comprovante, cifrar_mensagem, decifrar_mensagem
+from client.encrypt_message import cifrar_mensagem
+from client.encrypt_receipt import cifrar_comprovante
+from crypto import derivar_chave_sessao, derivar_iv
+from server.decrypt_receipt import decifrar_comprovante
+from server.decrypt_message import decifrar_mensagem
 from utils import calcular_horario_chegada, enviar_pedido_restaurante, escolher_prato, solicitar_codigo_totp
 
 
@@ -48,7 +52,6 @@ def main():
     # Decifrando mensagem no usuário
     mensagem_decifrada = decifrar_mensagem(chave_sessao, iv_mensagem, mensagem_cifrada)
     print(f"Mensagem decifrada: {mensagem_decifrada.decode()}")
-
 
 if __name__ == "__main__":
     main()
